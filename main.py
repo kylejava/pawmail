@@ -11,7 +11,7 @@ def index():
         recipient_email_address = request.form['recipient']
         image_url = getDogPhoto()
         sendMail(sender_name, recipient_email_address, image_url)
-    return render_template('index.html')
+    return render_template('landing_page.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
