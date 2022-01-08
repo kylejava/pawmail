@@ -13,5 +13,11 @@ def index():
         sendMail(sender_name, recipient_email_address, image_url)
     return render_template('landing_page.html')
 
+@app.route('/submitted' , methods = ['GET' , 'POST'])
+def submitted():
+
+    return render_template('submitted_page.html')
+
+
 if __name__ == "__main__":
     app.run(debug=True)
