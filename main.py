@@ -9,14 +9,17 @@ def index():
     if (request.method == 'POST'):
         sender_name = request.form['sender']
         recipient_email_address = request.form['recipient']
-        image_url = getDogPhoto()
-        sendMail(sender_name, recipient_email_address, image_url)
-    return render_template('landing_page.html')
+        #image_url = getDogPhoto()
+        #sendMail(sender_name, recipient_email_address, image_url)
+    return render_template('index.html')
 
 @app.route('/submitted' , methods = ['GET' , 'POST'])
 def submitted():
-
-    return render_template('submitted_page.html')
+    if(request.method == 'POST'):
+        recipient_email_address = request.args.get('recipient_email_address')
+        sender_name = request.args.get('sender_name',None)
+        print(recipient_email_address)
+    return render_template('submitted_page.html', sender_name = sender_name)
 
 
 if __name__ == "__main__":
